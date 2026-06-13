@@ -1,0 +1,1 @@
+import { Helmet } from 'react-helmet-async'; const Connect = () => <div className="py-24"><h1 className="text-6xl text-center">Connect With Us</h1></div>; export default Connect;

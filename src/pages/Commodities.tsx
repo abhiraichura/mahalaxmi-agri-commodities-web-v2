@@ -1,0 +1,1 @@
+import { Helmet } from 'react-helmet-async'; const Commodities = () => <div className="py-24"><h1 className="text-6xl text-center">Commodities We Handle</h1></div>; export default Commodities;

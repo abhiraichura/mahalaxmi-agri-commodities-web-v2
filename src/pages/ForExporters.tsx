@@ -1,0 +1,1 @@
+import { Helmet } from 'react-helmet-async'; const ForExporters = () => <div className="py-24"><h1 className="text-6xl text-center">For Exporters</h1></div>; export default ForExporters;

@@ -1,0 +1,1 @@
+import { Helmet } from 'react-helmet-async'; const Terms = () => <div className="max-w-3xl mx-auto px-6 py-24 prose"><h1>Terms of Service</h1><p>Content to be added.</p></div>; export default Terms;
