@@ -1,7 +1,16 @@
 import { useRef, useMemo, useEffect, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Extend THREE.Line to avoid TypeScript conflict with SVG <line>
+extend({ Line_: THREE.Line });
+
+declare module '@react-three/fiber' {
+  interface ThreeElements {
+    line_: THREE.Line;
+  }
+}
 
 function Globe() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -48,7 +57,7 @@ function Globe() {
     );
   };
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.002;
     }
@@ -89,7 +98,7 @@ function Globe() {
         );
       })}
 
-      {/* Trade Arcs */}
+      {/* Trade Arcs using extended line_ element */}
       {tradeHubs.slice(1).map((hub, i) => {
         const start = latLonToVector3(tradeHubs[0].lat, tradeHubs[0].lon, 2.05);
         const end = latLonToVector3(hub.lat, hub.lon, 2.05);
@@ -101,9 +110,9 @@ function Globe() {
         const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
 
         return (
-          <line key={i} geometry={lineGeometry}>
+          <line_ key={i} geometry={lineGeometry}>
             <lineBasicMaterial color="#DE2A72" transparent opacity={0.4} />
-          </line>
+          </line_>
         );
       })}
 
