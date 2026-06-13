@@ -1,0 +1,170 @@
+{
+  "lastUpdated": "2025-06-13",
+  "commodities": [
+    {
+      "name": "Cumin Seeds (Jeera)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 28500,
+      "weekChange": 450,
+      "monthChange": -800,
+      "origin": "Unjha, Gujarat",
+      "exportGrade": "Singapore Quality",
+      "notes": "Arrivals stable. Bangladesh inquiry weak."
+    },
+    {
+      "name": "Coriander Seeds (Dhaniya)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 8200,
+      "weekChange": 150,
+      "monthChange": 300,
+      "origin": "Rajkot, Gujarat",
+      "exportGrade": "Eagle Quality",
+      "notes": "Demand firm from Middle East."
+    },
+    {
+      "name": "Turmeric (Haldi)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 18500,
+      "weekChange": -200,
+      "monthChange": 1200,
+      "origin": "Nizamabad, Telangana",
+      "exportGrade": "Finger Quality",
+      "notes": "Pharma-grade demand strong from USA."
+    },
+    {
+      "name": "Fenugreek (Methi)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 6200,
+      "weekChange": 80,
+      "monthChange": -150,
+      "origin": "Sirohi, Rajasthan",
+      "exportGrade": "Whole Seeds",
+      "notes": "Organic premium widening to 2.5x."
+    },
+    {
+      "name": "Red Chilli (Lal Mirch)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 22500,
+      "weekChange": 600,
+      "monthChange": 1500,
+      "origin": "Guntur, Andhra Pradesh",
+      "exportGrade": "S17 Quality",
+      "notes": "Colour value premium increasing."
+    },
+    {
+      "name": "Toor Dal (Pigeon Pea)",
+      "category": "Pulses",
+      "unit": "per Quintal",
+      "spotPrice": 9800,
+      "weekChange": -300,
+      "monthChange": 400,
+      "origin": "Indore, Madhya Pradesh",
+      "exportGrade": "Split Polished",
+      "notes": "Diaspora demand steady from UK/USA."
+    },
+    {
+      "name": "Chana (Chickpea)",
+      "category": "Pulses",
+      "unit": "per Quintal",
+      "spotPrice": 5200,
+      "weekChange": 100,
+      "monthChange": -200,
+      "origin": "Indore, Madhya Pradesh",
+      "exportGrade": "Kabuli Quality",
+      "notes": "Middle East demand firm."
+    },
+    {
+      "name": "Mung Beans (Moong)",
+      "category": "Pulses",
+      "unit": "per Quintal",
+      "spotPrice": 12500,
+      "weekChange": 350,
+      "monthChange": 800,
+      "origin": "Mandsaur, Madhya Pradesh",
+      "exportGrade": "Whole Premium",
+      "notes": "East Asian demand accelerating."
+    },
+    {
+      "name": "Sesame Seeds (Til)",
+      "category": "Oil Seeds",
+      "unit": "per Quintal",
+      "spotPrice": 18500,
+      "weekChange": 250,
+      "monthChange": 600,
+      "origin": "Rajkot, Gujarat",
+      "exportGrade": "Hulled White",
+      "notes": "Japanese buyers firming up for Q3."
+    },
+    {
+      "name": "Groundnut (Moongphali)",
+      "category": "Oil Seeds",
+      "unit": "per Quintal",
+      "spotPrice": 7200,
+      "weekChange": -100,
+      "monthChange": 200,
+      "origin": "Rajkot, Gujarat",
+      "exportGrade": "Bold Java",
+      "notes": "EU aflatoxin compliance critical."
+    },
+    {
+      "name": "Castor Oil Seeds",
+      "category": "Oil Seeds",
+      "unit": "per Quintal",
+      "spotPrice": 5800,
+      "weekChange": 150,
+      "monthChange": 400,
+      "origin": "Bhavnagar, Gujarat",
+      "exportGrade": "Commercial Grade",
+      "notes": "China buying resuming post-Lunar New Year."
+    },
+    {
+      "name": "Mustard Seeds (Rai)",
+      "category": "Oil Seeds",
+      "unit": "per Quintal",
+      "spotPrice": 6200,
+      "weekChange": 80,
+      "monthChange": -100,
+      "origin": "Jaipur, Rajasthan",
+      "exportGrade": "Yellow Premium",
+      "notes": "Yellow mustard niche premium holding."
+    },
+    {
+      "name": "Fennel Seeds (Saunf)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 14500,
+      "weekChange": 200,
+      "monthChange": 500,
+      "origin": "Vadodara, Gujarat",
+      "exportGrade": "Bold Quality",
+      "notes": "Singapore-quality bold commanding premium."
+    },
+    {
+      "name": "Nigella Seeds (Kalonji)",
+      "category": "Spices",
+      "unit": "per Quintal",
+      "spotPrice": 18500,
+      "weekChange": 300,
+      "monthChange": 700,
+      "origin": "Rajkot, Gujarat",
+      "exportGrade": "Premium Grade",
+      "notes": "Middle Eastern demand strengthening."
+    },
+    {
+      "name": "Cotton (Kapas)",
+      "category": "Grains",
+      "unit": "per Candy (356kg)",
+      "spotPrice": 62500,
+      "weekChange": 500,
+      "monthChange": 1200,
+      "origin": "Rajkot, Gujarat",
+      "exportGrade": "Shankar-6",
+      "notes": "Textile mill demand from Bangladesh firm."
+    }
+  ]
+}
