@@ -1,1 +1,0 @@
-import { Helmet } from 'react-helmet-async'; const HowItWorks = () => <div className="py-24"><h1 className="text-6xl text-center">How It Works</h1></div>; export default HowItWorks;
