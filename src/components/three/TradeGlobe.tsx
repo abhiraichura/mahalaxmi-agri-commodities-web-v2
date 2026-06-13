@@ -1,15 +1,27 @@
-import { useRef, useMemo, useEffect, useState } from 'react';
-import { Canvas, useFrame, extend } from '@react-three/fiber';
+import { useRef, useMemo, useEffect, useState, useLayoutEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Extend THREE.Line to avoid TypeScript conflict with SVG <line>
-extend({ Line_: THREE.Line });
+function TradeRouteLine({ start, end }: { start: THREE.Vector3; end: THREE.Vector3 }) {
+  const lineRef = useRef<THREE.Line>(null!);
 
-declare module '@react-three/fiber' {
-  interface ThreeElements {
-    line_: THREE.Line;
-  }
+  useLayoutEffect(() => {
+    if (lineRef.current) {
+      const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
+      mid.normalize().multiplyScalar(3.5);
+      const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+      const points = curve.getPoints(50);
+      lineRef.current.geometry.setFromPoints(points);
+    }
+  }, [start, end]);
+
+  return (
+    <line ref={lineRef}>
+      <bufferGeometry />
+      <lineBasicMaterial color="#DE2A72" transparent opacity={0.4} />
+    </line>
+  );
 }
 
 function Globe() {
@@ -98,21 +110,12 @@ function Globe() {
         );
       })}
 
-      {/* Trade Arcs using extended line_ element */}
+      {/* Trade Arcs using proper R3F line pattern */}
       {tradeHubs.slice(1).map((hub, i) => {
         const start = latLonToVector3(tradeHubs[0].lat, tradeHubs[0].lon, 2.05);
         const end = latLonToVector3(hub.lat, hub.lon, 2.05);
-        const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
-        mid.normalize().multiplyScalar(3.5);
-
-        const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
-        const points = curve.getPoints(50);
-        const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-
         return (
-          <line_ key={i} geometry={lineGeometry}>
-            <lineBasicMaterial color="#DE2A72" transparent opacity={0.4} />
-          </line_>
+          <TradeRouteLine key={i} start={start} end={end} />
         );
       })}
 
