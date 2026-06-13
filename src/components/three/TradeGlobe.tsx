@@ -1,7 +1,16 @@
 import { useRef, useMemo, useEffect, useState, useLayoutEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, extend, Object3DNode } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Extend THREE.Line to avoid TypeScript conflict with SVG <line>
+extend({ Line_: THREE.Line });
+
+declare module '@react-three/fiber' {
+  interface ThreeElements {
+    line_: Object3DNode<THREE.Line, typeof THREE.Line>;
+  }
+}
 
 function TradeRouteLine({ start, end }: { start: THREE.Vector3; end: THREE.Vector3 }) {
   const lineRef = useRef<THREE.Line>(null!);
@@ -17,10 +26,10 @@ function TradeRouteLine({ start, end }: { start: THREE.Vector3; end: THREE.Vecto
   }, [start, end]);
 
   return (
-    <line ref={lineRef}>
+    <line_ ref={lineRef}>
       <bufferGeometry />
       <lineBasicMaterial color="#DE2A72" transparent opacity={0.4} />
-    </line>
+    </line_>
   );
 }
 
@@ -110,7 +119,7 @@ function Globe() {
         );
       })}
 
-      {/* Trade Arcs using proper R3F line pattern */}
+      {/* Trade Arcs using extended line_ element */}
       {tradeHubs.slice(1).map((hub, i) => {
         const start = latLonToVector3(tradeHubs[0].lat, tradeHubs[0].lon, 2.05);
         const end = latLonToVector3(hub.lat, hub.lon, 2.05);
