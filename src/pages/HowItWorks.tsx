@@ -27,7 +27,7 @@ const steps = [
   {
     icon: Scale,
     title: 'Price Discovery & Negotiation',
-    description: 'We facilitate transparent price discovery by sharing real-time market rates from APMC Unjha, NCDEX commodity data, and our own market intelligence. We mediate between supplier's minimum and exporter's maximum with a focus on closing — not prolonging negotiation. Brokerage terms are discussed and agreed at this stage.',
+    description: 'We facilitate transparent price discovery by sharing real-time market rates from APMC Unjha, NCDEX commodity data, and our own market intelligence. We mediate between supplier minimum and exporter maximum with a focus on closing — not prolonging negotiation. Brokerage terms are discussed and agreed at this stage.',
   },
   {
     icon: FileText,

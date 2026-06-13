@@ -1,16 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { value: 500, suffix: '+', label: 'Supplier
-Relationships' },
-  { value: 22, suffix: '+', label: 'Years of
-Experience' },
-  { value: 150, suffix: 'Cr+', label: 'Trade Volume
-Facilitated', prefix: '₹' },
-  { value: 15, suffix: '', label: 'Commodity
-Categories' },
-  { value: 8, suffix: '', label: 'States
-Reached' },
+  { value: 500, suffix: '+', label: 'Supplier\nRelationships' },
+  { value: 22, suffix: '+', label: 'Years of\nExperience' },
+  { value: 150, suffix: 'Cr+', label: 'Trade Volume\nFacilitated', prefix: '₹' },
+  { value: 15, suffix: '', label: 'Commodity\nCategories' },
+  { value: 8, suffix: '', label: 'States\nReached' },
 ];
 
 function CountUp({ end, duration = 2000, prefix = '', suffix = '' }: { end: number; duration?: number; prefix?: string; suffix?: string }) {
