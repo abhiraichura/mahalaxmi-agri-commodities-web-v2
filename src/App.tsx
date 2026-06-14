@@ -6,7 +6,8 @@ import Footer from './components/layout/Footer';
 import CustomCursor from './components/layout/CustomCursor';
 import WhatsAppButton from './components/layout/WhatsAppButton';
 import { useLenis } from './hooks/useLenis';
-
+import { Suspense, lazy, useEffect } from 'react'; // Added useEffect
+import { Routes, Route, useLocation } from 'react-router-dom'; // Added useLocation
 // Lazy load all pages
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
