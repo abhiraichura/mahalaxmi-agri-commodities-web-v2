@@ -30,13 +30,10 @@ function PageLoader() {
 export default function App() {
   useLenis();
   const location = useLocation();
-  
-  // State to handle the transition and the currently displayed route
   const [displayLocation, setDisplayLocation] = useState(location);
   const [transitionStage, setTransitionStage] = useState('fadeIn');
 
   useEffect(() => {
-    // Trigger fadeOut whenever the actual route changes
     if (location.pathname !== displayLocation.pathname) {
       setTransitionStage('fadeOut');
     }
@@ -56,16 +53,24 @@ export default function App() {
           transitionStage === 'fadeOut' ? 'opacity-0' : 'opacity-100'
         }`}
         onTransitionEnd={() => {
-          // Once the fade-out completes, scroll to top, swap the route, and fade back in
           if (transitionStage === 'fadeOut') {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
+            requestAnimationFrame(() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            });
+
             setDisplayLocation(location);
-            setTransitionStage('fadeIn');
+
+            setTimeout(() => {
+              setTransitionStage('fadeIn');
+            }, 10);
           }
         }}
       >
         <Suspense fallback={<PageLoader />}>
-          {/* We pass displayLocation to Routes so it holds the old page until the fade finishes */}
           <Routes location={displayLocation}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
