@@ -1,3 +1,4 @@
+// src/data/commodities.ts
 export interface Commodity {
   id: string;
   name: string;
@@ -26,7 +27,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["Bangladesh", "USA", "UAE", "UK", "Sri Lanka", "Saudi Arabia"],
     season: "February-May",
     stat: "India exports 80% of global cumin supply",
-    image: "/images/commodities/cumin.jpg",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "coriander",
@@ -40,7 +41,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["UAE", "Malaysia", "USA", "Bangladesh"],
     season: "November-March",
     stat: "Gujarat accounts for 30% of national production",
-    image: "/images/commodities/coriander.jpg",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "turmeric",
@@ -54,7 +55,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["USA", "Japan", "UAE", "EU pharmaceutical sector"],
     season: "Year-round",
     stat: "Anti-inflammatory gold. Demand at 12-year high.",
-    image: "/images/commodities/turmeric.jpg",
+    image: "https://images.unsplash.com/photo-1615486171448-4fdcb67e8124?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "fenugreek",
@@ -68,7 +69,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["USA", "EU (Germany, France)", "UAE", "Malaysia"],
     season: "October-March",
     stat: "Rajasthan and Gujarat - twin heartlands",
-    image: "/images/commodities/fenugreek.jpg",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "chilli",
@@ -82,7 +83,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["USA", "China", "Sri Lanka", "Malaysia", "UAE"],
     season: "March-June",
     stat: "India is worlds largest chilli producer",
-    image: "/images/commodities/chilli.jpg",
+    image: "https://images.unsplash.com/photo-1596648056265-d0526e0e85ee?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "toor-dal",
@@ -96,7 +97,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["UK", "USA", "UAE", "Canada", "Australia"],
     season: "November-February",
     stat: "Indias pulse powerhouse",
-    image: "/images/commodities/toor-dal.jpg",
+    image: "https://images.unsplash.com/photo-1515942400420-2b98fed1f515?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "chana",
@@ -110,7 +111,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["Bangladesh", "Pakistan", "Algeria", "UAE", "Australia"],
     season: "March-June",
     stat: "India produces 75% of world chickpeas",
-    image: "/images/commodities/chana.jpg",
+    image: "https://images.unsplash.com/photo-1515942400420-2b98fed1f515?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "mung",
@@ -124,7 +125,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["China", "UAE", "USA", "Bangladesh"],
     season: "March-May",
     stat: "Growing demand from East Asian markets",
-    image: "/images/commodities/mung.jpg",
+    image: "https://images.unsplash.com/photo-1515942400420-2b98fed1f515?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "sesame",
@@ -138,7 +139,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["Japan", "China", "South Korea", "Netherlands", "USA"],
     season: "September-November",
     stat: "Indias #1 sesame exporter globally",
-    image: "/images/commodities/sesame.jpg",
+    image: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "groundnut",
@@ -152,7 +153,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["EU (Netherlands, Germany)", "Vietnam", "Indonesia", "UAE"],
     season: "October-January",
     stat: "Saurashtras agricultural backbone",
-    image: "/images/commodities/groundnut.jpg",
+    image: "https://images.unsplash.com/photo-1579549320297-f584eeb1d1df?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "castor",
@@ -166,7 +167,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["China", "USA", "EU (Germany, Netherlands)", "Brazil"],
     season: "December-March",
     stat: "Gujarat controls 90% of world castor supply",
-    image: "/images/commodities/castor.jpg",
+    image: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "mustard",
@@ -180,7 +181,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["Bangladesh", "UAE", "USA", "Nepal"],
     season: "March-May",
     stat: "Growing demand for yellow mustard exports",
-    image: "/images/commodities/mustard.jpg",
+    image: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "fennel",
@@ -194,7 +195,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["Bangladesh", "UAE", "USA", "Indonesia", "Singapore"],
     season: "March-June",
     stat: "India is worlds largest fennel exporter",
-    image: "/images/commodities/fennel.jpg",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "nigella",
@@ -208,7 +209,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["UAE", "Saudi Arabia", "Bangladesh", "Pakistan"],
     season: "March-May",
     stat: "Growing demand from Middle Eastern markets",
-    image: "/images/commodities/nigella.jpg",
+    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "cotton",
@@ -222,7 +223,7 @@ export const commodities: Commodity[] = [
     keyMarkets: ["China", "Bangladesh", "Vietnam", "Indonesia"],
     season: "October-March",
     stat: "Gujarat is Indias cotton capital",
-    image: "/images/commodities/cotton.jpg",
+    image: "https://images.unsplash.com/photo-1581014389035-7799d54e4708?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
