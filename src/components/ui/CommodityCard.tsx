@@ -1,3 +1,5 @@
+// src/components/ui/CommodityCard.tsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Commodity } from '../../data/commodities';
@@ -7,7 +9,11 @@ interface CommodityCardProps {
   index?: number;
 }
 
+const fallbackImage = "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80";
+
 export default function CommodityCard({ commodity, index = 0 }: CommodityCardProps) {
+  const [imgSrc, setImgSrc] = useState(commodity.image);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -19,10 +25,11 @@ export default function CommodityCard({ commodity, index = 0 }: CommodityCardPro
       <div className="relative h-48 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
         <img
-          src={commodity.image}
+          src={imgSrc}
           alt={`${commodity.name} - ${commodity.localName}`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          onError={() => setImgSrc(fallbackImage)}
         />
         <div className="absolute bottom-3 left-3 z-20">
           <span className="inline-block px-2 py-1 bg-brand-primary text-white text-xs font-medium rounded">
