@@ -1,14 +1,12 @@
-import { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Suspense, lazy, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CustomCursor from './components/layout/CustomCursor';
 import WhatsAppButton from './components/layout/WhatsAppButton';
 import { useLenis } from './hooks/useLenis';
-import { Suspense, lazy, useEffect } from 'react'; // Added useEffect
-import { Routes, Route, useLocation } from 'react-router-dom'; // Added useLocation
-// Lazy load all pages
+
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const HowItWorks = lazy(() => import('./pages/HowItWorks'));
@@ -31,6 +29,15 @@ function PageLoader() {
 
 export default function App() {
   useLenis();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+  }, [pathname]);
 
   return (
     <>
