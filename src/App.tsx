@@ -1,6 +1,7 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CustomCursor from './components/layout/CustomCursor';
@@ -27,17 +28,28 @@ function PageLoader() {
   );
 }
 
+const AnimatedPage = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.3, ease: 'easeInOut' }}
+  >
+    <Suspense fallback={<PageLoader />}>
+      {children}
+    </Suspense>
+  </motion.div>
+);
+
 export default function App() {
   useLenis();
   const location = useLocation();
-  const [displayLocation, setDisplayLocation] = useState(location);
-  const [transitionStage, setTransitionStage] = useState('fadeIn');
 
   useEffect(() => {
-    if (location.pathname !== displayLocation.pathname) {
-      setTransitionStage('fadeOut');
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
     }
-  }, [location, displayLocation]);
+  }, []);
 
   return (
     <>
@@ -48,43 +60,22 @@ export default function App() {
       <CustomCursor />
       <Navbar />
 
-      <main
-        className={`transition-opacity duration-300 ease-in-out ${
-          transitionStage === 'fadeOut' ? 'opacity-0' : 'opacity-100'
-        }`}
-        onTransitionEnd={() => {
-          if (transitionStage === 'fadeOut') {
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-
-            requestAnimationFrame(() => {
-              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            });
-
-            setDisplayLocation(location);
-
-            setTimeout(() => {
-              setTransitionStage('fadeIn');
-            }, 10);
-          }
-        }}
-      >
-        <Suspense fallback={<PageLoader />}>
-          <Routes location={displayLocation}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/commodities" element={<Commodities />} />
-            <Route path="/for-suppliers" element={<ForSuppliers />} />
-            <Route path="/for-exporters" element={<ForExporters />} />
-            <Route path="/market-intel" element={<MarketIntel />} />
-            <Route path="/commodity-tracker" element={<CommodityTracker />} />
-            <Route path="/connect" element={<Connect />} />
-            <Route path="/legal/privacy" element={<Privacy />} />
-            <Route path="/legal/terms" element={<Terms />} />
+      <main>
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<AnimatedPage><Home /></AnimatedPage>} />
+            <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
+            <Route path="/how-it-works" element={<AnimatedPage><HowItWorks /></AnimatedPage>} />
+            <Route path="/commodities" element={<AnimatedPage><Commodities /></AnimatedPage>} />
+            <Route path="/for-suppliers" element={<AnimatedPage><ForSuppliers /></AnimatedPage>} />
+            <Route path="/for-exporters" element={<AnimatedPage><ForExporters /></AnimatedPage>} />
+            <Route path="/market-intel" element={<AnimatedPage><MarketIntel /></AnimatedPage>} />
+            <Route path="/commodity-tracker" element={<AnimatedPage><CommodityTracker /></AnimatedPage>} />
+            <Route path="/connect" element={<AnimatedPage><Connect /></AnimatedPage>} />
+            <Route path="/legal/privacy" element={<AnimatedPage><Privacy /></AnimatedPage>} />
+            <Route path="/legal/terms" element={<AnimatedPage><Terms /></AnimatedPage>} />
           </Routes>
-        </Suspense>
+        </AnimatePresence>
       </main>
 
       <Footer />
