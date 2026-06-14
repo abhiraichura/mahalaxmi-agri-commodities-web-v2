@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './components/layout/Navbar';
@@ -29,15 +29,18 @@ function PageLoader() {
 
 export default function App() {
   useLenis();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  
+  // State to handle the transition and the currently displayed route
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionStage, setTransitionStage] = useState('fadeIn');
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant'
-    });
-  }, [pathname]);
+    // Trigger fadeOut whenever the actual route changes
+    if (location.pathname !== displayLocation.pathname) {
+      setTransitionStage('fadeOut');
+    }
+  }, [location, displayLocation]);
 
   return (
     <>
@@ -48,9 +51,22 @@ export default function App() {
       <CustomCursor />
       <Navbar />
 
-      <main>
+      <main
+        className={`transition-opacity duration-300 ease-in-out ${
+          transitionStage === 'fadeOut' ? 'opacity-0' : 'opacity-100'
+        }`}
+        onTransitionEnd={() => {
+          // Once the fade-out completes, scroll to top, swap the route, and fade back in
+          if (transitionStage === 'fadeOut') {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            setDisplayLocation(location);
+            setTransitionStage('fadeIn');
+          }
+        }}
+      >
         <Suspense fallback={<PageLoader />}>
-          <Routes>
+          {/* We pass displayLocation to Routes so it holds the old page until the fade finishes */}
+          <Routes location={displayLocation}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
